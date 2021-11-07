@@ -9,5 +9,3 @@ Die Slides zum Vortrag "Einstieg in Go" kannst Du mit Beispielen lokal ausführe
     npm start
 
 Die Slides findet Ihr unter http://localhost:6060. Die Code Beispiele im Browser laufen nur im Chrome.
-
-## JavaMagazin und JAXenter
