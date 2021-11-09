@@ -47,7 +47,9 @@
                 <h1>467.882 <span style="font-size: 50%;">Zeilen Code</span></h1>
                 <h1>2.130 <span style="font-size: 50%;">Contributors</span></h1>
                </section>
-               <section>
+               <section data-background-iframe="https://landscape.cncf.io/card-mode" data-background-interactive>
+            </section>
+              <section>
                 <img src="./themes/Go-Logo_White.png" width="60%" style="margin: auto;" />
                </section>
                <section>
@@ -252,7 +254,7 @@
                     <h1>Zu Einfach?</h1>
                 </section>
                 <section data-run-in-terminal="02_struct_embed\congressman.go" data-run-in-terminal-bin="go">
-                    <h2>Struct Embedding <span style="font-size: 50%;">statt Vererbung</span></h2>
+                    <h2>Struct Embedding</h2>
                     <pre style="font-size: .49em;"><code data-trim data-noescape data-line-numbers="1-3|5-10|12-14" class="go">
                         type Congressman struct {
                           Name string
@@ -457,21 +459,21 @@
                 </section>
                 <section>
                     <h2 style="margin-bottom: 5px;">Debatte <span style="font-size: 50%;">mit Goroutinen und Channels</span></h2>
-                    <pre style="font-size: 0.45em; margin: 0; width: 100%; line-height: 1;"><code data-trim data-noescape class="go" data-line-numbers="2-3|5-6|9-14|1-23">                        
+                    <pre style="font-size: 0.45em; margin: 0; width: 100%; line-height: 1;"><code data-trim data-noescape class="go" data-line-numbers="14|14-17|14-22|1-11,14-22">                        
                         func speaker(name string, debate chan int) {
                           for {
-                            microphone := <-debate // Auf Mikro warten
+                            microphone := <-debate // Auf Mikro warten (Nachricht empfangen)
                         
                             fmt.Printf("Turn %v: %v says '%v'\n", microphone, name, randomAnswer())
                             time.Sleep(400 * time.Millisecond)
                         
                             microphone++
-                            debate <- microphone // Mikro zurückgeben
+                            debate <- microphone // Mikro zurückgeben (Nachricht senden)
                           }
                         }
                         
                         func main() {
-                          debate := make(chan int)
+                          debate := make(chan int) // Channel deklarieren und initialisieren
                         
                           go speaker("Jackie", debate)
                           go speaker("Frank", debate)
