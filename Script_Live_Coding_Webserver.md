@@ -4,7 +4,7 @@
 
 ### a) Go Modul initialisieren
 ```
-go mod init java-to-go
+go mod init better-code-go
 ```
 
 ### b) Datei `main.go` erstellen
